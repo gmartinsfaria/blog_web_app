@@ -1,0 +1,30 @@
+<%- include('partials/header.ejs') %>
+
+    <div class="container">
+        <h1 class="mb-4">Insert post details:</h1>
+
+        <form action="/submit" method="POST">
+            <label>Post Title: </label>
+            <input type="text" name="submitedTitle" placeholder="Title"><br>
+            <br>
+
+            <label>Post Image: </label>&nbsp; 
+            <% if (locals.imgArray) { %>
+                <% for (var i = 0; i < imgArray.length; i++){ %>
+                    <a href="/selectedPostImage/<%= `image_${i+1}` %>" class="nav-link img-btn">
+                        <img id="img-btn-<%= i %>" class="img-btn" width="100" height="100" xmlns="http://www.w3.org/2000/svg"
+                        role="img" aria-label="Placeholder: Thumbnail" 
+                        src="/imgs/<%= locals.imgArray[i]%>" alt="<%= locals.imgArray[i] %>" >
+                    </a>
+                    &nbsp; 
+                <% } %>
+            <% } %>
+            <br>
+            <br>
+            <label>Post Details: </label><br>
+            <textarea type="text" name="submitedDetail" placeholder="Details" cols="50" rows="7"></textarea><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+<%- include('partials/footer.ejs') %>

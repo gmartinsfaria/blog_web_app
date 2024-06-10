@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        
+        
+        <% if (locals.allPosts){ %>
+            <% for(var i = 0; i < allPosts.length; i++){ %>
+                <div class="col">
+                <div class="card shadow-sm">
+                    <img class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" src="/imgs/<%= locals.allPosts[i].image %>.jpg" alt="<%= locals.allPosts[i].image %>" >
+                    <div class="card-body">
+                        <h4 class="card-text"><%= locals.allPosts[i].title %></h4>
+                        
+                        
+
+                        <% if (locals.allPosts[i].detail.length <= 60){ %>
+                          <p class="card-text"><%= locals.allPosts[i].detail %></p>
+                        <% }else{ %>
+                          <p class="card-text"><%= locals.allPosts[i].detail.substring(0,60) %>...</p>
+                        <% } %>
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary"><a href="/postDetail/<%= i %>" class="nav-link">View</a></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            
+            
+                <% } %>
+        <% } %>
+
+    </div>
+</div>

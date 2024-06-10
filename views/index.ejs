@@ -1,0 +1,28 @@
+<%- include('partials/header.ejs') %>
+
+    <div class="px-4 py-5 my-5 text-center">
+        <h1>Welcome to Gabriel's Blog web application</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">Here you're free and you can post whatever you want. You can also access to your previous posts and edit them. I just must warn you that this is something just for fun so everytime you reload the page all the data will be lost.</p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button type="button" class="btn btn-primary btn-lg px-4 gap-3"><a href="/newPost" class="nav-link">Create new post</a></button>
+            
+          </div>
+        </div>
+    </div>
+
+    <!--<div class="container">
+
+        <%# if (locals.allPosts){ %>
+            <%# for(var i = 0; i < allPosts.length; i++){ %>
+                <p>
+                    <%# locals.allPosts[i].title %> 
+                </p>
+            <%# } %>
+        <%# } %>
+    </div>-->
+
+    
+<%- include('partials/postList.ejs') %>
+
+<%- include('partials/footer.ejs') %>

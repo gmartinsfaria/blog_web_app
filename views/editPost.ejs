@@ -1,0 +1,36 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container">
+    <h1 class="mb-4">Here you can change post details:</h1>
+
+    <form action="/editSubmit" method="POST">
+        <% if (locals.postDetailsToSend && locals.postId) { %>
+            <label>Post Title: </label>
+            <input type="text" name="editedTitle" value="<%= locals.postDetailsToSend["title"] %>">
+            <br>
+            <br>
+            
+            <label>Post Image: </label>
+            <br>
+            <br>
+            <img class="img-btn" width="100" height="100" xmlns="http://www.w3.org/2000/svg"
+            role="img" aria-label="Placeholder: Thumbnail" src="/imgs/<%= locals.postDetailsToSend["image"] %>.jpg" alt="postImage">
+            <br>
+            <br>
+            
+
+            <label>Post Title: </label><br>
+            <textarea type="text" name="editedDetail" value="<%= locals.postDetailsToSend["detail"] %>" cols="50" rows="7"><%= locals.postDetailsToSend["detail"] %></textarea><br>
+            
+            
+
+        <% }else{ %>
+            <% console.log("Não retornou nada"); %>
+        <% } %>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+
+<%- include('partials/footer.ejs') %>

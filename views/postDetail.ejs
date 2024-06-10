@@ -1,0 +1,33 @@
+<%- include('partials/header.ejs') %>
+
+    <div class="container">
+        <% if (locals.selectedPost){ %>
+
+            <div class="post-editor-container">
+                <form class="mt-3" action="/deletePost" method="GET">
+                    <input type="submit" value="Delete">
+                </form>
+
+                <form class="mt-3 me-3" action="/editPost" method="GET">
+                    <input type="submit" value="Edit">
+                </form>
+            </div>
+
+            
+            
+            <h1 class="pt-5">
+                <%= selectedPost.title %>
+            </h1>
+
+            <img class="bd-placeholder-img card-img-top mb-3 pt-2" width="50%" height="300" xmlns="http://www.w3.org/2000/svg" 
+            role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" 
+            src="/imgs/<%= selectedPost.image %>.jpg" alt="">
+
+            <p class="mb-5 pb-5">
+                <%= selectedPost.detail %>
+            </p>
+        <% } %>
+    
+    </div>
+
+<%- include('partials/footer.ejs') %>
